@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Ghoul Extension",
+    "version": "1.0.0",
+    "description": "Conceals sensitive Azure information found in the portal views",
+    "browser_action": {
+        "default_popup": "/popout/popout.html"
+    },
+    "background": {
+        "scripts": [
+            "/popout/eventPage.js"
+        ],
+        "persistent": false
+    },
+    "options_page": "/popout/options.html",
+    "permissions": [
+        "storage",
+        "notifications",
+        "contextMenus"
+    ]
+}
