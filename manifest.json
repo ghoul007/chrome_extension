@@ -13,9 +13,26 @@
         "persistent": false
     },
     "options_page": "/popout/options.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://app.pluralsight.com/library/browse/*"
+            ],
+            "js": [
+                "/popout/pluralsight.js",
+                "/popout/jquery3.min.js"
+            ],
+            "css": [
+                "/popout/pluralsight.css"
+            ]
+        }
+    ],
     "permissions": [
         "storage",
         "notifications",
-        "contextMenus"
+        "contextMenus",
+        "tabs",
+        "activeTab",
+        "https://app.pluralsight.com/*"
     ]
 }

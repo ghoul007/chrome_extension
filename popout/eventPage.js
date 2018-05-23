@@ -1,3 +1,7 @@
+
+/**
+ * Menu Item
+ */
 var menuItem = {
     "id": "addGhoul",
     "title": "addGhoul",
@@ -23,6 +27,24 @@ chrome.contextMenus.onClicked.addListener(function (clickDaa) {
     }
 })
 
+/**
+ * Storage
+ */
 chrome.storage.onChanged.addListener(function (changes) {
     chrome.browserAction.setBadgeText({ 'text': changes.total.newValue.toString() })
+})
+
+
+/**
+ * Page Action
+ */
+
+
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action == "show") {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.pageAction.show(tabs[0].id)
+        })
+    }
 })
